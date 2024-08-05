@@ -1,9 +1,8 @@
-import { BadRequestException, HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnprocessableEntityException } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
 import { Not, Repository } from 'typeorm';
 import { UserEntity } from 'src/entities/user.entity';
-import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { HashService } from './hash.service';
 import { UserValidationMessage } from 'src/utils/validation/messages/user-validation-messages';
@@ -13,7 +12,6 @@ export class UsersService {
   constructor(
     @InjectRepository(UserEntity) private userEntity: Repository<UserEntity>,
     private readonly hashService: HashService,
-    private readonly jwtService: JwtService,
   ) { }
 
   async create(createUserDto: CreateUserDto) {
@@ -65,7 +63,7 @@ export class UsersService {
     const existingEmail = await this.userEntity.exists({ where: { email, id: Not(ignoreId) } });
 
     if (existingEmail) {
-      throw new HttpException(UserValidationMessage.EMAIL_ALREADY_EXISTS, HttpStatus.UNPROCESSABLE_ENTITY);
+      throw new UnprocessableEntityException(UserValidationMessage.EMAIL_ALREADY_EXISTS);
     }
   }
 

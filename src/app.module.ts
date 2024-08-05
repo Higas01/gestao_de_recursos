@@ -7,6 +7,12 @@ import { UserEntity } from './entities/user.entity';
 import { HashService } from './services/hash.service';
 import { AuthService } from './services/auth.service';
 import { AuthController } from './controllers/auth.controller';
+import { ResourceEntity } from './entities/resource.entity';
+import { ResourcesController } from './controllers/resource.controller';
+import { ResourceService } from './services/resource.service';
+import { AllocationController } from './controllers/allocation.controller';
+import { AllocationService } from './services/allocation.service';
+import { AllocationEntity } from './entities/allocation.entity';
 
 @Module({
   imports: [
@@ -22,6 +28,8 @@ import { AuthController } from './controllers/auth.controller';
     }),
     TypeOrmModule.forFeature([
       UserEntity,
+      ResourceEntity,
+      AllocationEntity
     ]),
     TypeOrmModule.forRootAsync({
       useFactory: async () => {
@@ -38,8 +46,8 @@ import { AuthController } from './controllers/auth.controller';
       }
     }),
   ],
-  controllers: [UsersController, AuthController],
-  providers: [HashService, UsersService, AuthService],
+  controllers: [UsersController, AuthController, ResourcesController, AllocationController],
+  providers: [HashService, UsersService, AuthService, ResourceService, AllocationService],
 })
 export class AppModule { }
 
