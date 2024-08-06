@@ -128,4 +128,4 @@ docker compose up
 <small> O comando acima irá executar o arquivo docker-compose.yml contendo a API e o Banco de Dados, executando as migrations e disponibilizando a API na porta 3001 </small>
 
 ### Documentação 
-A documentação da API pode ser acessada pela [URL](https://documenter.getpostman.com/view/29129381/2sA3rxqDXi) ou importar diretamente no Postman através [deste link](assets/documentation.json)
+A documentação da API pode ser acessada pela [URL](https://documenter.getpostman.com/view/29129381/2sA3rxqDXm) ou importar diretamente no Postman através [deste link](assets/documentation.json)
