@@ -56,13 +56,15 @@ Componentes utilitários utilizados como decorators em outros componentes
 ## Entidades
 O sistema possui 3 entidades para manipulação e persistência dos dados
 
+![Entidades do sistema](assets/entities.png)
+
 ### User
 Responsável por manipular recursos e alocações à depender de sua função no sistema (administrador ou usuário convencional)
 * Administrador: pode gerenciar os recursos do sistema
 * Usuário convencional: pode gerenciar alocações de recursos para si mesmo
 
 ### Resource 
-Entidade genêrica que possui um nome e pode ser alocado a um usuário do sistema
+Entidade genérica que possui um nome e pode ser alocado a um usuário do sistema
 
 ### Allocation
 Representa uma ação realizada em determinado período onde um recurso foi alocado a um usuário 
@@ -124,3 +126,6 @@ Permitida para qualquer tipo de usuário autenticado, lista alocações realizad
 docker compose up
 ```
 <small> O comando acima irá executar o arquivo docker-compose.yml contendo a API e o Banco de Dados, executando as migrations e disponibilizando a API na porta 3001 </small>
+
+### Documentação 
+A documentação da API pode ser acessada pela [URL](https://documenter.getpostman.com/view/29129381/2sA3rxqDXi) ou importar diretamente no Postman através [deste link](assets/documentation.json)
