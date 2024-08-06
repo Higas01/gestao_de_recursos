@@ -5,5 +5,4 @@ export class CreateResourceDto {
     @IsNotEmpty({ message: ResourceValidationMessages.NAME_REQUIRED })
     @MaxLength(100, { message: ResourceValidationMessages.NAME_MAX_LENGTH })
     name: string;
-
 }
